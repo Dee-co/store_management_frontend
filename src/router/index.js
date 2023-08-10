@@ -1,18 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import AgGrid from '../views/AgGrid'
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    redirect: '/login', // Redirect to the 'home' route
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: HomeView,
+  },
+  {
+    path: '/agGrid',
+    name: 'agGrid',
+    component: AgGrid,
   },
   {
     path: '/about',
     name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   }
 ]
